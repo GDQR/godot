@@ -37,8 +37,9 @@ class AudioStreamPlaybackInteractive;
 
 class AudioStreamInteractive : public AudioStream {
 	GDCLASS(AudioStreamInteractive, AudioStream)
-	OBJ_SAVE_TYPE(AudioStream)
+	// OBJ_SAVE_TYPE(AudioStream)
 public:
+	String get_save_class() const { return "AudioStream"; }
 	enum TransitionFromTime {
 		TRANSITION_FROM_TIME_IMMEDIATE,
 		TRANSITION_FROM_TIME_NEXT_BEAT,

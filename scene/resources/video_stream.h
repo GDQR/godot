@@ -90,7 +90,9 @@ public:
 
 class VideoStream : public Resource {
 	GDCLASS(VideoStream, Resource);
-	OBJ_SAVE_TYPE(VideoStream);
+	// OBJ_SAVE_TYPE(VideoStream);
+public:
+	String get_save_class() const { return "VideoStream"; }
 
 protected:
 	static void _bind_methods();

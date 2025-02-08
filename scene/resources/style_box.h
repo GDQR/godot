@@ -39,7 +39,9 @@ class CanvasItem;
 class StyleBox : public Resource {
 	GDCLASS(StyleBox, Resource);
 	RES_BASE_EXTENSION("stylebox");
-	OBJ_SAVE_TYPE(StyleBox);
+	// OBJ_SAVE_TYPE(StyleBox);
+public:
+	String get_save_class() const { return "StyleBox"; }
 
 	float content_margin[4];
 

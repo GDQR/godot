@@ -35,7 +35,9 @@
 
 class Shape2D : public Resource {
 	GDCLASS(Shape2D, Resource);
-	OBJ_SAVE_TYPE(Shape2D);
+	// OBJ_SAVE_TYPE(Shape2D);
+public:
+	String get_save_class() const { return "Shape2D"; }
 
 	RID shape;
 	real_t custom_bias = 0.0;

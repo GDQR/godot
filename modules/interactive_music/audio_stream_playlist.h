@@ -37,7 +37,8 @@ class AudioStreamPlaybackPlaylist;
 
 class AudioStreamPlaylist : public AudioStream {
 	GDCLASS(AudioStreamPlaylist, AudioStream)
-	OBJ_SAVE_TYPE(AudioStream)
+public:
+	String get_save_class() const { return "AudioStream"; }
 
 private:
 	friend class AudioStreamPlaybackPlaylist;

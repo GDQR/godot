@@ -36,7 +36,11 @@
 
 class SceneReplicationConfig : public Resource {
 	GDCLASS(SceneReplicationConfig, Resource);
-	OBJ_SAVE_TYPE(SceneReplicationConfig);
+	// OBJ_SAVE_TYPE(SceneReplicationConfig);
+public:
+	String get_save_class() const { return "SceneReplicationConfig"; }
+
+private:
 	RES_BASE_EXTENSION("repl");
 
 public:

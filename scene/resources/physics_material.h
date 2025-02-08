@@ -35,7 +35,10 @@
 
 class PhysicsMaterial : public Resource {
 	GDCLASS(PhysicsMaterial, Resource);
-	OBJ_SAVE_TYPE(PhysicsMaterial);
+	// OBJ_SAVE_TYPE(PhysicsMaterial);
+
+public:
+	String get_save_class() const { return "PhysicsMaterial"; }
 	RES_BASE_EXTENSION("phymat");
 
 	real_t friction = 1.0;

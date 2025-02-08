@@ -37,7 +37,9 @@
 
 class Gradient : public Resource {
 	GDCLASS(Gradient, Resource);
-	OBJ_SAVE_TYPE(Gradient);
+	// OBJ_SAVE_TYPE(Gradient);
+public:
+	String get_save_class() const { return "Gradient"; }
 
 public:
 	enum InterpolationMode {

@@ -39,7 +39,9 @@ typedef fastnoiselite::FastNoiseLite _FastNoiseLite;
 
 class FastNoiseLite : public Noise {
 	GDCLASS(FastNoiseLite, Noise);
-	OBJ_SAVE_TYPE(FastNoiseLite);
+	// OBJ_SAVE_TYPE(FastNoiseLite);
+public:
+	String get_save_class() const { return "FastNoiseLite"; }
 
 public:
 	enum NoiseType {

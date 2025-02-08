@@ -36,9 +36,9 @@
 
 class UndoRedo : public Object {
 	GDCLASS(UndoRedo, Object);
-	OBJ_SAVE_TYPE(UndoRedo);
-
+	// OBJ_SAVE_TYPE(UndoRedo);
 public:
+	String get_save_class() const { return "UndoRedo"; }
 	enum MergeMode {
 		MERGE_DISABLE,
 		MERGE_ENDS,

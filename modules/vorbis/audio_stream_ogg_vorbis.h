@@ -115,7 +115,9 @@ public:
 
 class AudioStreamOggVorbis : public AudioStream {
 	GDCLASS(AudioStreamOggVorbis, AudioStream);
-	OBJ_SAVE_TYPE(AudioStream); // Saves derived classes with common type so they can be interchanged.
+	// OBJ_SAVE_TYPE(AudioStream); // Saves derived classes with common type so they can be interchanged.
+public:
+	String get_save_class() const { return "AudioStream"; }
 	RES_BASE_EXTENSION("oggvorbisstr");
 
 	friend class AudioStreamPlaybackOggVorbis;

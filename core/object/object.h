@@ -404,12 +404,12 @@ private:                                                                        
 public:                                                                                                                                     \
 	typedef m_class self_type;                                                                                                              \
 	static constexpr bool _class_is_enabled = !bool(GD_IS_DEFINED(ClassDB_Disable_##m_class)) && m_inherits::_class_is_enabled;             \
-	virtual String get_class() const override {                                                                                             \
+	/*virtual String get_class() const override {                                                                                           \
 		if (_get_extension()) {                                                                                                             \
 			return _get_extension()->class_name.operator String();                                                                          \
 		}                                                                                                                                   \
 		return String(#m_class);                                                                                                            \
-	}                                                                                                                                       \
+	}           */                                                                                                                          \
 	virtual const StringName *_get_class_namev() const override {                                                                           \
 		static StringName _class_name_static;                                                                                               \
 		if (unlikely(!_class_name_static)) {                                                                                                \
@@ -431,15 +431,15 @@ public:                                                                         
 		m_inherits::get_inheritance_list_static(p_inheritance_list);                                                                        \
 		p_inheritance_list->push_back(String(#m_class));                                                                                    \
 	}                                                                                                                                       \
-	virtual bool is_class(const String &p_class) const override {                                                                           \
+	/*bool is_class(const String &p_class) const {                                                                                          \
 		if (_get_extension() && _get_extension()->is_class(p_class)) {                                                                      \
 			return true;                                                                                                                    \
 		}                                                                                                                                   \
 		return (p_class == (#m_class)) ? true : m_inherits::is_class(p_class);                                                              \
-	}                                                                                                                                       \
-	virtual bool is_class_ptr(void *p_ptr) const override {                                                                                 \
+	}    */                                                                                                                                 \
+	/*bool is_class_ptr(void *p_ptr) const {                                                                                                \
 		return (p_ptr == get_class_ptr_static()) ? true : m_inherits::is_class_ptr(p_ptr);                                                  \
-	}                                                                                                                                       \
+	} */                                                                                                                                    \
                                                                                                                                             \
 	static void get_valid_parents_static(List<String> *p_parents) {                                                                         \
 		if (m_class::_get_valid_parents_static != m_inherits::_get_valid_parents_static) {                                                  \
@@ -563,14 +563,6 @@ protected:                                                                      
 		}                                                                                                                                   \
 	}                                                                                                                                       \
                                                                                                                                             \
-private:
-
-#define OBJ_SAVE_TYPE(m_class)                       \
-public:                                              \
-	virtual String get_save_class() const override { \
-		return #m_class;                             \
-	}                                                \
-                                                     \
 private:
 
 class ScriptInstance;
@@ -819,21 +811,21 @@ public:
 	static String get_class_static() { return "Object"; }
 	static String get_parent_class_static() { return String(); }
 
-	virtual String get_class() const {
+	String get_class() const {
 		if (_extension) {
 			return _extension->class_name.operator String();
 		}
 		return "Object";
 	}
-	virtual String get_save_class() const { return get_class(); } //class stored when saving
+	String get_save_class() const { return get_class(); } //class stored when saving
 
-	virtual bool is_class(const String &p_class) const {
+	bool is_class(const String &p_class) const {
 		if (_extension && _extension->is_class(p_class)) {
 			return true;
 		}
 		return (p_class == "Object");
 	}
-	virtual bool is_class_ptr(void *p_ptr) const { return get_class_ptr_static() == p_ptr; }
+	bool is_class_ptr(void *p_ptr) const { return get_class_ptr_static() == p_ptr; }
 
 	_FORCE_INLINE_ const StringName &get_class_name() const {
 		if (_extension) {

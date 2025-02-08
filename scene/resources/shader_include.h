@@ -38,7 +38,9 @@
 
 class ShaderInclude : public Resource {
 	GDCLASS(ShaderInclude, Resource);
-	OBJ_SAVE_TYPE(ShaderInclude);
+	// OBJ_SAVE_TYPE(ShaderInclude);
+public:
+	String get_save_class() const { return "ShaderInclude"; }
 
 private:
 	String code;

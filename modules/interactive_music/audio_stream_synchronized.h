@@ -37,7 +37,9 @@ class AudioStreamPlaybackSynchronized;
 
 class AudioStreamSynchronized : public AudioStream {
 	GDCLASS(AudioStreamSynchronized, AudioStream)
-	OBJ_SAVE_TYPE(AudioStream)
+	// OBJ_SAVE_TYPE(AudioStream)
+public:
+	String get_save_class() const { return "AudioStream"; }
 
 private:
 	friend class AudioStreamPlaybackSynchronized;

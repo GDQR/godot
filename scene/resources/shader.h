@@ -39,7 +39,9 @@
 
 class Shader : public Resource {
 	GDCLASS(Shader, Resource);
-	OBJ_SAVE_TYPE(Shader);
+	// OBJ_SAVE_TYPE(Shader);
+public:
+	String get_save_class() const { return "Shader"; }
 
 public:
 	enum Mode {

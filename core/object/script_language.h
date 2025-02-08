@@ -112,7 +112,9 @@ class PlaceHolderScriptInstance;
 
 class Script : public Resource {
 	GDCLASS(Script, Resource);
-	OBJ_SAVE_TYPE(Script);
+	// OBJ_SAVE_TYPE(Script);
+public:
+	String get_save_class() const { return "Script"; }
 
 protected:
 	// Scripts are reloaded via the Script Editor when edited in Godot,

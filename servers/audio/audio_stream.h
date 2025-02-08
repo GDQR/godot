@@ -158,8 +158,10 @@ public:
 
 class AudioStream : public Resource {
 	GDCLASS(AudioStream, Resource);
-	OBJ_SAVE_TYPE(AudioStream); // Saves derived classes with common type so they can be interchanged.
+	// OBJ_SAVE_TYPE(AudioStream); // Saves derived classes with common type so they can be interchanged.
 
+public:
+	String get_save_class() const { return "AudioStream"; }
 	enum {
 		MAX_TAGGED_OFFSETS = 8
 	};

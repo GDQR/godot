@@ -36,7 +36,9 @@
 
 class Translation : public Resource {
 	GDCLASS(Translation, Resource);
-	OBJ_SAVE_TYPE(Translation);
+	// OBJ_SAVE_TYPE(Translation);
+public:
+	String get_save_class() const { return "Translation"; }
 	RES_BASE_EXTENSION("translation");
 
 	String locale = "en";

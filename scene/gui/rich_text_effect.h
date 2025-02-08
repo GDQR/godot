@@ -100,7 +100,9 @@ public:
 
 class RichTextEffect : public Resource {
 	GDCLASS(RichTextEffect, Resource);
-	OBJ_SAVE_TYPE(RichTextEffect);
+	// OBJ_SAVE_TYPE(RichTextEffect);
+public:
+	String get_save_class() const { return "RichTextEffect"; }
 
 protected:
 	static void _bind_methods();

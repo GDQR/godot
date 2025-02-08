@@ -38,7 +38,9 @@ class Material;
 
 class Shape3D : public Resource {
 	GDCLASS(Shape3D, Resource);
-	OBJ_SAVE_TYPE(Shape3D);
+	// OBJ_SAVE_TYPE(Shape3D);
+public:
+	String get_save_class() const { return "Shape3D"; }
 	RES_BASE_EXTENSION("shape");
 	RID shape;
 	real_t custom_bias = 0.0;

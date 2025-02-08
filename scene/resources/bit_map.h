@@ -39,7 +39,9 @@ class TypedArray;
 
 class BitMap : public Resource {
 	GDCLASS(BitMap, Resource);
-	OBJ_SAVE_TYPE(BitMap);
+	// OBJ_SAVE_TYPE(BitMap);
+public:
+	String get_save_class() const { return "BitMap"; }
 
 	Vector<uint8_t> bitmask;
 	int width = 0;

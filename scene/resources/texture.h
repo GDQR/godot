@@ -47,7 +47,9 @@ public:
 
 class Texture2D : public Texture {
 	GDCLASS(Texture2D, Texture);
-	OBJ_SAVE_TYPE(Texture2D); // Saves derived classes with common type so they can be interchanged.
+	// OBJ_SAVE_TYPE(Texture2D); // Saves derived classes with common type so they can be interchanged.
+public:
+	String get_save_class() const { return "Texture2D"; }
 
 protected:
 	static void _bind_methods();

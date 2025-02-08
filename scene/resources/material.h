@@ -40,7 +40,9 @@
 class Material : public Resource {
 	GDCLASS(Material, Resource);
 	RES_BASE_EXTENSION("material")
-	OBJ_SAVE_TYPE(Material);
+	// OBJ_SAVE_TYPE(Material);
+public:
+	String get_save_class() const { return "material"; }
 
 	mutable RID material;
 	Ref<Material> next_pass;
